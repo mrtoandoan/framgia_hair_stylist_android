@@ -20,6 +20,9 @@
             android:name="com.framgia.fsalon.screen.register.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Register"/>
+        <activity
+            android:name="com.framgia.fsalon.screen.login.LoginActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
