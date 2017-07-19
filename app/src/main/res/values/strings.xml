@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">FSalon</string>
+
+    <string name="action_create">Create Account</string>
+    <string name="action_login">Login</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_birth">Date of Birth</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_mobile">Mobile Number</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_re_password">Re-enter Password</string>
+
+    <string name="msg_member">Already a member?</string>
 </resources>
