@@ -23,12 +23,14 @@ public class HomeActivity extends AppCompatActivity {
         ActivityHomeBinding binding =
             DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setViewModel((HomeViewModel) mViewModel);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         mViewModel.onStart();
+
     }
 
     @Override
