@@ -7,10 +7,12 @@ import com.framgia.fsalon.BaseViewModel;
  * This specifies the contract between the view and the presenter.
  */
 interface LoginContract {
+
     /**
      * View.
      */
     interface ViewModel extends BaseViewModel<Presenter> {
+
         void showProgressbar();
 
         void onLoginSuccess();
@@ -34,6 +36,9 @@ interface LoginContract {
      * Presenter.
      */
     interface Presenter extends BasePresenter {
+
         void login(String email, String passWord);
+
+        void getCurrentUser();
     }
 }

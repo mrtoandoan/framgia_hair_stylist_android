@@ -12,7 +12,7 @@ import rx.Observable;
 public interface FSalonApi {
 
     @POST("api/v0/login")
-    Observable<Respone<UserRespone>> login(@Query("email") String account,
+    Observable<Respone<UserRespone>> login(@Query("email_or_phone") String account,
         @Query("password") String passWord);
 
     @GET("api/v0/get-salons")

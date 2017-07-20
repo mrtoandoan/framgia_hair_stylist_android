@@ -1,22 +1,31 @@
 package com.framgia.fsalon.data.source;
 
 import com.framgia.fsalon.data.model.UserRespone;
-import com.framgia.fsalon.data.source.remote.UserRemoteDataSource;
-
 import rx.Observable;
 
 /**
  * Created by MyPC on 20/07/2017.
  */
-public class UserRepository implements UserDataSource.RemoteDataSource {
-    private UserRemoteDataSource mUserRemoteDataSource;
+public class UserRepository {
 
-    public UserRepository(UserRemoteDataSource userRemoteDataSource) {
+    private UserDataSource.RemoteDataSource mUserRemoteDataSource;
+    private UserDataSource.LocalDataSource mUserLocalDataSource;
+
+    public UserRepository(UserDataSource.RemoteDataSource userRemoteDataSource,
+        UserDataSource.LocalDataSource userLocalDataSource) {
         mUserRemoteDataSource = userRemoteDataSource;
+        mUserLocalDataSource = userLocalDataSource;
     }
 
-    @Override
     public Observable<UserRespone> login(String account, String passWord) {
         return mUserRemoteDataSource.login(account, passWord);
+    }
+
+    public Observable<UserRespone> getCurrentUser() {
+        return mUserLocalDataSource.getCurrentUser();
+    }
+
+    public Observable<Boolean> saveCurrentUser(UserRespone userRespone) {
+        return mUserLocalDataSource.saveCurrentUser(userRespone);
     }
 }
