@@ -4,8 +4,8 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import framgia.fsalon.R;
-import framgia.fsalon.databinding.ActivityDetailBinding;
+import com.framgia.fsalon.R;
+import com.framgia.fsalon.databinding.ActivityDetailBinding;
 
 /**
  * Detail Screen.
