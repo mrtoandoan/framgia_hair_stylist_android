@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.framgia.fsalon.R;
+
 import com.framgia.fsalon.databinding.ActivityRegisterBinding;
 
 /**
