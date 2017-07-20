@@ -37,7 +37,7 @@ if [ -z "${CI_PULL_REQUEST}" ]; then
     # when not pull request
     REPORTER=Saddler::Reporter::Github::CommitReviewComment
 else
-    REPORTER=Saddler::Reporter::Github::PullRequestReviewComment
+    REPORTER=Saddler::Reporter::Github::CommitReviewComment
 fi
 
 echo "********************"
