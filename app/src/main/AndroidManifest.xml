@@ -14,7 +14,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
         <activity
             android:name="com.framgia.fsalon.screen.register.RegisterActivity"
@@ -23,6 +22,10 @@
         <activity
             android:name="com.framgia.fsalon.screen.login.LoginActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.framgia.fsalon.screen.detail.DetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
