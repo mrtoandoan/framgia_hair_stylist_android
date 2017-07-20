@@ -11,11 +11,29 @@ interface LoginContract {
      * View.
      */
     interface ViewModel extends BaseViewModel<Presenter> {
+        void showProgressbar();
+
+        void onLoginSuccess();
+
+        void onLoginErrror(String message);
+
+        void hideProgressbar();
+
+        void onLoginClick();
+
+        void onRegisterClick();
+
+        void onForgotPassWordClick();
+
+        void onInputAccountError();
+
+        void onInputPassWordError();
     }
 
     /**
      * Presenter.
      */
     interface Presenter extends BasePresenter {
+        void login(String email, String passWord);
     }
 }
