@@ -1,6 +1,5 @@
 package com.framgia.fsalon.utils;
 
-
 import framgia.retrofitservicecreator.api.model.Respone;
 import rx.Observable;
 
@@ -17,4 +16,5 @@ public class Utils {
             return Observable.just(listRespone.getData());
         }
     }
+
 }
