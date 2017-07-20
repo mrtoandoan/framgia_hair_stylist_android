@@ -1,10 +1,9 @@
 package com.framgia.fsalon.screen.login;
 
 import android.text.TextUtils;
-
-import com.framgia.fsalon.data.source.UserRepository;
+import android.util.Log;
 import com.framgia.fsalon.data.model.UserRespone;
-
+import com.framgia.fsalon.data.source.UserRepository;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
@@ -17,6 +16,7 @@ import rx.subscriptions.CompositeSubscription;
  * the UI as required.
  */
 public class LoginPresenter implements LoginContract.Presenter {
+
     private static final String TAG = LoginPresenter.class.getName();
     private final LoginContract.ViewModel mViewModel;
     private UserRepository mRepository;
@@ -25,6 +25,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     public LoginPresenter(LoginContract.ViewModel viewModel, UserRepository repository) {
         mViewModel = viewModel;
         mRepository = repository;
+        getCurrentUser();
     }
 
     @Override
@@ -54,6 +55,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                 @Override
                 public void call(UserRespone userRespone) {
                     mViewModel.onLoginSuccess();
+                    mRepository.saveCurrentUser(userRespone).subscribe();
                 }
             }, new Action1<Throwable>() {
                 @Override
@@ -65,6 +67,27 @@ public class LoginPresenter implements LoginContract.Presenter {
                 @Override
                 public void call() {
                     mViewModel.hideProgressbar();
+                }
+            });
+        mCompositeSubscriptions.add(subscription);
+    }
+
+    @Override
+    public void getCurrentUser() {
+        Subscription subscription = mRepository.getCurrentUser()
+            .subscribeOn(AndroidSchedulers.mainThread())
+            .observeOn(Schedulers.io())
+            .subscribe(new Action1<UserRespone>() {
+                @Override
+                public void call(UserRespone userRespone) {
+                    if (userRespone != null) {
+                        mViewModel.onLoginSuccess();
+                    }
+                }
+            }, new Action1<Throwable>() {
+                @Override
+                public void call(Throwable throwable) {
+                    Log.d(TAG, "call: " + throwable.getMessage());
                 }
             });
         mCompositeSubscriptions.add(subscription);

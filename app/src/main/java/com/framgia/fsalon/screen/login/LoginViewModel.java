@@ -6,14 +6,16 @@ import android.databinding.Bindable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import com.framgia.fsalon.BR;
 import com.framgia.fsalon.R;
+import com.framgia.fsalon.screen.home.HomeActivity;
+import com.framgia.fsalon.utils.navigator.Navigator;
 
 /**
  * Exposes the data to be used in the Login screen.
  */
 public class LoginViewModel extends BaseObservable implements LoginContract.ViewModel {
+
     private LoginContract.Presenter mPresenter;
     private AppCompatActivity mActivity;
     private Context mContext;
@@ -22,11 +24,13 @@ public class LoginViewModel extends BaseObservable implements LoginContract.View
     private String mPassWord;
     private String mAccountError;
     private String mPassWordError;
+    private Navigator mNavigator;
 
     public LoginViewModel(AppCompatActivity activity) {
         mActivity = activity;
         mContext = mActivity.getApplicationContext();
         setProgressBarVisibility(View.GONE);
+        mNavigator = new Navigator(mActivity);
     }
 
     @Override
@@ -51,16 +55,14 @@ public class LoginViewModel extends BaseObservable implements LoginContract.View
 
     @Override
     public void onLoginSuccess() {
-        Snackbar.make(mActivity.findViewById(android.R.id.content),
-            mContext.getString(R.string.msg_login_success),
-            Snackbar
-                .LENGTH_LONG).show();
+        mNavigator.startActivity(HomeActivity.getInstance(mNavigator.getContext()));
+        mNavigator.finishActivity();
     }
 
     @Override
     public void onLoginErrror(String message) {
-        Snackbar.make(mActivity.findViewById(android.R.id.content), message, Snackbar
-            .LENGTH_LONG).show();
+        Snackbar.make(mActivity.findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
+            .show();
     }
 
     @Override
