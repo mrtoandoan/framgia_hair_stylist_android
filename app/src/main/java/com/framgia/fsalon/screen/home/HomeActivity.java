@@ -6,19 +6,26 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
-
 import com.framgia.fsalon.R;
+import com.framgia.fsalon.data.model.BookingResponse;
+import com.framgia.fsalon.data.source.BookingDataRepository;
+import com.framgia.fsalon.data.source.api.FSalonServiceClient;
+import com.framgia.fsalon.data.source.remote.BookingRemoteDataSource;
 import com.framgia.fsalon.databinding.ActivityHomeBinding;
 import com.framgia.fsalon.screen.image.ImageFragment;
-
 import java.util.ArrayList;
 import java.util.List;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Home Screen.
  */
 public class HomeActivity extends AppCompatActivity {
+
     private HomeContract.ViewModel mViewModel;
 
     public static Intent getInstance(Context context) {
@@ -29,8 +36,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         List<ImageFragment> fragments = new ArrayList<>();
-        ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(getSupportFragmentManager(),
-            fragments);
+        ImagePagerAdapter imagePagerAdapter =
+            new ImagePagerAdapter(getSupportFragmentManager(), fragments);
         mViewModel = new HomeViewModel(imagePagerAdapter);
         HomeContract.Presenter presenter = new HomePresenter(mViewModel);
         mViewModel.setPresenter(presenter);
@@ -42,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         binding.pagerImages.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset,
-                                       int positionOffsetPixels) {
+                int positionOffsetPixels) {
                 binding.pagerImages.startAutoScroll(7000);
             }
 
