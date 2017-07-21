@@ -24,7 +24,7 @@
     <string name="title_register">Register</string>
     <string name="msg_error_empty">Text Must not Empty!</string>
     <string name="msg_login_success">Login Success</string>
-    <string name="title_info">Information</string>
+    <string name="title_info">Info</string>
     <string name="title_book">Book</string>
     <string name="title_date">Date</string>
     <string name="title_time">Time</string>
@@ -33,4 +33,6 @@
     <string name="title_today">Today</string>
     <string name="title_tomorrow">Tomorrow</string>
     <string name="title_after_tomorrow">After Tomorrow</string>
+    <string name="title_history">History</string>
+    <string name="title_detail">Detail</string>
 </resources>
