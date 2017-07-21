@@ -14,9 +14,15 @@ final class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void onStart() {
+        // TODO: 7/20/2017 get image url for tab layout
+        getUrls();
     }
 
     @Override
     public void onStop() {
+    }
+
+    @Override
+    public void getUrls() {
     }
 }

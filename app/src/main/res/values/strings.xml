@@ -24,4 +24,5 @@
     <string name="title_register">Register</string>
     <string name="msg_error_empty">Text Must not Empty!</string>
     <string name="msg_login_success">Login Success</string>
+    <string name="title_info">Information</string>
 </resources>
