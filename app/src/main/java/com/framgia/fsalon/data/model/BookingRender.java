@@ -1,15 +1,16 @@
 package com.framgia.fsalon.data.model;
 
+import android.databinding.Bindable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
  * Created by framgia on 7/21/17.
  */
-
 public class BookingRender {
-
     @SerializedName("id")
     @Expose
     private int mId;
@@ -40,6 +41,11 @@ public class BookingRender {
     @SerializedName("order_booking")
     @Expose
     private List<BookingOder> mOrderBooking;
+
+    public BookingRender(String timeStart, int status) {
+        mTimeStart = timeStart;
+        mStatus = status;
+    }
 
     public int getId() {
         return mId;

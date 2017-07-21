@@ -23,7 +23,8 @@ public interface FSalonApi {
     @GET("api/v0/get-salons")
     Observable<Respone<List<Salon>>> getSalon();
 
-    @GET("api/v2/get-stylist-by-salonId/{id}")
+
+    @GET("api/v0/get-stylist-by-salonId/{id}")
     Observable<Respone<List<Stylist>>> getStylistBySalonId(@Path("id") int id);
 
     @GET("api/v0/get-render-by-depart-stylist")

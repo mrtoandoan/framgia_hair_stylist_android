@@ -25,4 +25,9 @@
     <string name="msg_error_empty">Text Must not Empty!</string>
     <string name="msg_login_success">Login Success</string>
     <string name="title_info">Information</string>
+    <string name="title_book">Book</string>
+    <string name="title_date">Date</string>
+    <string name="title_time">Time</string>
+    <string name="action_close">Close</string>
+    <string name="title_dash">-</string>
 </resources>
