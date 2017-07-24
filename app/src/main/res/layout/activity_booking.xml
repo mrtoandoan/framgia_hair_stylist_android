@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.framgia.fsalon.screen.booking.BookingViewModel"
+            />
+
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_10">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_name"
+                    android:inputType="textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_phone"
+                    android:inputType="textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sp_10"
+                android:layout_marginTop="@dimen/sp_10"
+                android:text="@string/title_salon"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:layoutManager="StaggeredGridLayoutManager"
+                bind:recyclerAdapter="@{viewModel.salonAdapter}"
+                bind:spanCount="3"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sp_10"
+                android:layout_marginTop="@dimen/sp_10"
+                android:text="@string/title_stylist"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                />
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbarSize="@dimen/dp_20"
+                bind:hintText="@string/title_dash"
+                bind:searchableSpinnerAdapter="@{viewModel.stylistAdapter}"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sp_10"
+                android:layout_marginTop="@dimen/sp_10"
+                android:text="@string/title_date"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:layoutManager="StaggeredGridLayoutManager"
+                bind:recyclerAdapter="@{viewModel.dateAdapter}"
+                bind:spanCount="3"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sp_10"
+                android:layout_marginTop="@dimen/sp_10"
+                android:text="@string/title_time"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:layoutManager="StaggeredGridLayoutManager"
+                bind:recyclerAdapter="@{viewModel.timeAdapter}"
+                bind:spanCount="4"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_24"
+                android:background="@color/colorPrimaryDark"
+                android:padding="@dimen/dp_12"
+                android:text="@string/title_book"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

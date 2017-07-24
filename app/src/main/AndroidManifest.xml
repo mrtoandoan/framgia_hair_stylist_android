@@ -17,7 +17,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Register"/>
         <activity
-            android:name="com.framgia.fsalon.screen.login.LoginActivity"
+            android:name=".screen.login.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,9 +26,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.framgia.fsalon.screen.detail.DetailActivity"
+            android:name=".screen.detail.DetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".screen.booking.BookingActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
