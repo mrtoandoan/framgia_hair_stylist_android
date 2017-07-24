@@ -35,6 +35,10 @@ public class Stylist {
     @SerializedName("updated_at")
     private String mUpdatedAt;
 
+    public Stylist(String name) {
+        mName = name;
+    }
+
     public int getId() {
         return mId;
     }
@@ -145,5 +149,10 @@ public class Stylist {
 
     public void setUpdatedAt(String updatedAt) {
         mUpdatedAt = updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return mName;
     }
 }

@@ -19,6 +19,11 @@ public class Salon {
     @Expose
     private String mAddress;
 
+    public Salon(String name, String address) {
+        mName = name;
+        mAddress = address;
+    }
+
     public int getId() {
         return mId;
     }
