@@ -42,9 +42,9 @@ public class BookingRender {
     @Expose
     private List<BookingOder> mOrderBooking;
 
-    public BookingRender(String timeStart, int status) {
+    public BookingRender(String timeStart, String statusLabel) {
         mTimeStart = timeStart;
-        mStatus = status;
+        mStatusLabel = statusLabel;
     }
 
     public int getId() {
