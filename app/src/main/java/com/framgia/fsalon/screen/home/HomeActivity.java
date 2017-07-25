@@ -6,20 +6,12 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import com.framgia.fsalon.R;
-import com.framgia.fsalon.data.model.BookingResponse;
-import com.framgia.fsalon.data.source.BookingDataRepository;
-import com.framgia.fsalon.data.source.api.FSalonServiceClient;
-import com.framgia.fsalon.data.source.remote.BookingRemoteDataSource;
 import com.framgia.fsalon.databinding.ActivityHomeBinding;
 import com.framgia.fsalon.screen.image.ImageFragment;
 import java.util.ArrayList;
 import java.util.List;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 /**
  * Home Screen.

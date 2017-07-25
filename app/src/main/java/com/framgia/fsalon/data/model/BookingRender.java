@@ -1,16 +1,22 @@
 package com.framgia.fsalon.data.model;
 
+import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import com.framgia.fsalon.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import static com.framgia.fsalon.utils.Constant.AVAILABLE;
+import static com.framgia.fsalon.utils.Constant.FULL;
+import static com.framgia.fsalon.utils.Constant.OFF_WORK;
+
 /**
  * Created by framgia on 7/21/17.
  */
-public class BookingRender {
+public class BookingRender extends BaseObservable{
     @SerializedName("id")
     @Expose
     private int mId;
@@ -42,9 +48,18 @@ public class BookingRender {
     @Expose
     private List<BookingOder> mOrderBooking;
 
-    public BookingRender(String timeStart, String statusLabel) {
-        mTimeStart = timeStart;
-        mStatusLabel = statusLabel;
+    @Bindable
+    public int getResourceId() {
+        switch (mStatus) {
+            case FULL:
+                return R.drawable.bg_border_red;
+            case AVAILABLE:
+                return R.drawable.bg_border_green;
+            case OFF_WORK:
+                return R.drawable.bg_border_red;
+            default:
+                return R.drawable.bg_border_green;
+        }
     }
 
     public int getId() {

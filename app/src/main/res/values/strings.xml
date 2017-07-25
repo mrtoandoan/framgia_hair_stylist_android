@@ -30,4 +30,7 @@
     <string name="title_time">Time</string>
     <string name="action_close">Close</string>
     <string name="title_dash">-</string>
+    <string name="title_today">Today</string>
+    <string name="title_tomorrow">Tomorrow</string>
+    <string name="title_after_tomorrow">After Tomorrow</string>
 </resources>

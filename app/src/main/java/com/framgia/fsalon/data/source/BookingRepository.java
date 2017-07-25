@@ -7,11 +7,11 @@ import rx.Observable;
  * Created by framgia on 7/21/17.
  */
 
-public class BookingDataRepository implements BookingDataSource {
+public class BookingRepository implements BookingDataSource {
 
     private BookingDataSource mRemoteDataSource;
 
-    public BookingDataRepository(BookingDataSource remoteDataSource) {
+    public BookingRepository(BookingDataSource remoteDataSource) {
         mRemoteDataSource = remoteDataSource;
     }
 
