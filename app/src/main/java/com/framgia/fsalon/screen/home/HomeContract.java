@@ -13,8 +13,7 @@ interface HomeContract {
      * View.
      */
     interface ViewModel extends BaseViewModel<Presenter> {
-        void onGetUrlSuccess(List<String> urls);
-        void onGetUrlFail();
+        void onUserClick();
         void onBookingClick();
         void onDetailListClick();
         void onHistoryClick();
@@ -24,6 +23,5 @@ interface HomeContract {
      * Presenter.
      */
     interface Presenter extends BasePresenter {
-        void getUrls();
     }
 }

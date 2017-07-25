@@ -3,7 +3,9 @@ package com.framgia.fsalon.utils.binding;
 import android.databinding.BindingAdapter;
 import android.databinding.InverseBindingAdapter;
 import android.databinding.InverseBindingListener;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,7 +17,6 @@ import android.widget.LinearLayout;
 import com.framgia.fsalon.R;
 import com.framgia.fsalon.data.model.Stylist;
 import com.framgia.fsalon.screen.booking.BookingViewModel;
-import com.framgia.fsalon.screen.home.ImagePagerAdapter;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 /**
@@ -25,11 +26,6 @@ public class BindingUtils {
     @BindingAdapter("errorText")
     public static void setErrorText(TextInputLayout layout, String text) {
         layout.setError(text);
-    }
-
-    @BindingAdapter("bind:pagerAdapter")
-    public static void setPagerAdapter(ViewPager viewPager, ImagePagerAdapter adapter) {
-        viewPager.setAdapter(adapter);
     }
 
     @BindingAdapter("android:src")
@@ -76,5 +72,21 @@ public class BindingUtils {
             }
         };
         view.setOnItemSelectedListener(listener);
+    }
+    
+    @BindingAdapter("bind:viewPagerAdapter")
+    public static void setViewPagerAdapter(ViewPager viewPager, PagerAdapter pagerAdapter) {
+        viewPager.setAdapter(pagerAdapter);
+    }
+
+    @BindingAdapter("bind:listener")
+    public static void setBottomNavigationViewListener(BottomNavigationView view,
+                                                       BottomNavigationView.OnNavigationItemSelectedListener listener) {
+        view.setOnNavigationItemSelectedListener(listener);
+    }
+
+    @BindingAdapter("bind:tabSelect")
+    public static void setSelectedTab(ViewPager viewPager, int position) {
+        viewPager.setCurrentItem(position);
     }
 }

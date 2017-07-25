@@ -208,7 +208,7 @@
                         android:layout_height="@dimen/dp_24"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_user"
+                        android:src="@drawable/ic_hairdresser"
                         android:tint="@android:color/darker_gray"/>
 
                     <LinearLayout

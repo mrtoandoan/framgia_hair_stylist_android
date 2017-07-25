@@ -14,22 +14,28 @@
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:context="com.framgia.fsalon.screen.home.HomeActivity">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_home"
+        <com.framgia.fsalon.screen.home.NonSwipeViewPager
+            android:id="@+id/pager_user_home"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"/>
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_user_home"
+            bind:viewPagerAdapter="@{viewModel.pagerAdapter}"
+            bind:tabSelect="@{viewModel.tabPosition}"/>
 
-        <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
-            android:id="@+id/pager_images"
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_user_home"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_256"
-            bind:pagerAdapter="@{viewModel.adapter}"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            bind:itemBackground="@drawable/tab_state"
+            bind:itemIconTint="@drawable/nav_state"
+            bind:itemTextColor="@drawable/nav_state"
+            bind:menu="@menu/menu_bottom_user"
+            bind:listener="@{viewModel.listener}"/>
+    </RelativeLayout>
 </layout>
