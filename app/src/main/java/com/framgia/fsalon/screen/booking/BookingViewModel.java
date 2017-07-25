@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 
 import com.framgia.fsalon.BR;
 import com.framgia.fsalon.R;
+import com.framgia.fsalon.data.model.BookingOder;
 import com.framgia.fsalon.data.model.BookingRender;
 import com.framgia.fsalon.data.model.BookingResponse;
 import com.framgia.fsalon.data.model.DateBooking;
@@ -33,6 +34,9 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     private long mTime = System.currentTimeMillis() / 1000;
     private int mSalonId;
     private int mStylistId = OUT_OF_INDEX;
+    private String mPhone;
+    private String mName;
+    private int mRenderBookingId;
 
     public BookingViewModel(AppCompatActivity activity) {
         mActivity = activity;
@@ -47,6 +51,18 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     @Override
     public void onGetDateBookingSuccess(List<DateBooking> dateBookings) {
         setDateAdapter(new DateBookingAdapter(mContext, dateBookings, this));
+    }
+
+    @Override
+    public void onBookSuccess(BookingOder bookingOder) {
+        Snackbar.make(mActivity.findViewById(android.R.id.content),
+            getStringRes(R.string.msg_book_success),
+            Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void book() {
+        mPresenter.book(mPhone, mName, mRenderBookingId, mStylistId);
     }
 
     @Override
@@ -96,6 +112,7 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
             return;
         }
         mTimeAdapter.selectedPosition(position);
+        mRenderBookingId = bookingRender.getId();
     }
 
     @Override
@@ -177,5 +194,25 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     public void setStylistId(int stylistId) {
         mStylistId = stylistId;
         notifyPropertyChanged(BR.stylistId);
+    }
+
+    @Bindable
+    public String getPhone() {
+        return mPhone;
+    }
+
+    public void setPhone(String phone) {
+        mPhone = phone;
+        notifyPropertyChanged(BR.phone);
+    }
+
+    @Bindable
+    public String getName() {
+        return mName;
+    }
+
+    public void setName(String name) {
+        mName = name;
+        notifyPropertyChanged(BR.name);
     }
 }

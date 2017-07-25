@@ -1,6 +1,7 @@
 package com.framgia.fsalon.screen.booking;
 
 import com.framgia.fsalon.R;
+import com.framgia.fsalon.data.model.BookingOder;
 import com.framgia.fsalon.data.model.BookingResponse;
 import com.framgia.fsalon.data.model.DateBooking;
 import com.framgia.fsalon.data.model.Salon;
@@ -190,5 +191,36 @@ public class BookingPresenter implements BookingContract.Presenter {
             .add(new DateBooking(mViewModel.getStringRes(R.string.title_after_tomorrow),
                 System.currentTimeMillis() + A_DAY * 2));
         mViewModel.onGetDateBookingSuccess(dateBookings);
+    }
+
+    @Override
+    public void book(String phone, String name, int renderBookingId, int stylistId) {
+        Subscription subscription = mBookingRepository.book(phone, name, renderBookingId, stylistId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe(new Action0() {
+                @Override
+                public void call() {
+                    mViewModel.showProgressbar();
+                }
+            })
+            .subscribe(new Action1<BookingOder>() {
+                @Override
+                public void call(BookingOder bookingOder) {
+                    mViewModel.onBookSuccess(bookingOder);
+                }
+            }, new Action1<Throwable>() {
+                @Override
+                public void call(Throwable throwable) {
+                    mViewModel.hideProgressbar();
+                    mViewModel.onError(throwable.getMessage());
+                }
+            }, new Action0() {
+                @Override
+                public void call() {
+                    mViewModel.hideProgressbar();
+                }
+            });
+        mCompositeSubscriptions.add(subscription);
     }
 }

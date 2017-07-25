@@ -2,6 +2,7 @@ package com.framgia.fsalon.screen.booking;
 
 import com.framgia.fsalon.BasePresenter;
 import com.framgia.fsalon.BaseViewModel;
+import com.framgia.fsalon.data.model.BookingOder;
 import com.framgia.fsalon.data.model.BookingRender;
 import com.framgia.fsalon.data.model.BookingResponse;
 import com.framgia.fsalon.data.model.DateBooking;
@@ -41,6 +42,10 @@ interface BookingContract {
         String getStringRes(int resId);
 
         void onGetDateBookingSuccess(List<DateBooking> dateBookings);
+
+        void onBookSuccess(BookingOder bookingOder);
+
+        void book();
     }
 
     /**
@@ -56,5 +61,7 @@ interface BookingContract {
         void getBookings(int salonId, long time);
 
         void getDateBooking();
+
+        void book(String phone, String name, int renderBookingId, int stylistId);
     }
 }
