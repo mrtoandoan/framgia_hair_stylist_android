@@ -34,6 +34,9 @@
         <activity
             android:name=".screen.booking.BookingActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".screen.homeadmin.AdminHomeActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

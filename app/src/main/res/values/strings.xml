@@ -35,4 +35,9 @@
     <string name="title_after_tomorrow">After Tomorrow</string>
     <string name="title_history">History</string>
     <string name="title_detail">Detail</string>
+    <string name="title_scheduler">Scheduler</string>
+    <string name="title_customer">Customer</string>
+    <string name="title_receipt">Bill</string>
+    <string name="title_report">Report</string>
+    <string name="title_profile">Profile</string>
 </resources>
