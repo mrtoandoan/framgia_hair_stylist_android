@@ -19,5 +19,9 @@ public class Constant {
         public static final String DEPARTMENT_ID = "department_id";
         public static final String STYLIST_ID = "stylist_id";
         public static final String DATE = "date";
+        public static final String PHONE = "phone";
+        public static final String NAME = "name";
+        public static final String RENDER_BOOKING_ID = "render_booking_id";
+        public static final String STYLIST_CHOSEN = "stylist_chosen";
     }
 }
