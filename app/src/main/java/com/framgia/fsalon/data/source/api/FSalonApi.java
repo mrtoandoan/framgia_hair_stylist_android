@@ -1,12 +1,15 @@
 package com.framgia.fsalon.data.source.api;
 
+import com.framgia.fsalon.data.model.BookingOder;
 import com.framgia.fsalon.data.model.BookingResponse;
 import com.framgia.fsalon.data.model.Salon;
 import com.framgia.fsalon.data.model.Stylist;
 import com.framgia.fsalon.data.model.UserRespone;
-import framgia.retrofitservicecreator.api.model.Respone;
+
 import java.util.List;
 import java.util.Map;
+
+import framgia.retrofitservicecreator.api.model.Respone;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -23,10 +26,12 @@ public interface FSalonApi {
     @GET("api/v0/get-salons")
     Observable<Respone<List<Salon>>> getSalon();
 
-
     @GET("api/v0/get-stylist-by-salonId/{id}")
     Observable<Respone<List<Stylist>>> getStylistBySalonId(@Path("id") int id);
 
     @GET("api/v0/get-render-by-depart-stylist")
     Observable<Respone<BookingResponse>> getBookings(@QueryMap Map<String, String> parrams);
+
+    @POST("api/v0/user_booking")
+    Observable<Respone<BookingOder>> book(@QueryMap Map<String, String> parrams);
 }
