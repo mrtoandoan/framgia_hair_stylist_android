@@ -68,7 +68,7 @@ public class BindingUtils {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 bindingListener.onChange();
-                // TODO: 25/07/2017  viewModel.getData();
+                viewModel.getData();
             }
 
             @Override

@@ -37,7 +37,7 @@
                 android:layout_gravity="center"
                 android:text="@{viewHolderModel.dateBooking.day}"
                 android:textColor="@{viewHolderModel.selected ? @color/color_white : @color/color_black}"
-                android:textSize="@dimen/sp_15"
+                android:textSize="@dimen/sp_10"
                 android:textStyle="bold"/>
 
             <TextView
