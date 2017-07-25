@@ -87,6 +87,8 @@
                 android:layout_height="wrap_content"
                 android:scrollbarSize="@dimen/dp_20"
                 bind:hintText="@string/title_dash"
+                bind:stylistId="@={viewModel.stylistId}"
+                bind:viewModel="@{viewModel}"
                 bind:searchableSpinnerAdapter="@{viewModel.stylistAdapter}"/>
 
             <android.support.v7.widget.AppCompatTextView

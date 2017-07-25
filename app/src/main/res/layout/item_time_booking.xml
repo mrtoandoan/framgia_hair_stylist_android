@@ -2,10 +2,12 @@
 
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     >
 
     <data>
+
+        <import type="com.framgia.fsalon.utils.Constant"/>
 
         <variable
             name="viewHolderModel"
@@ -19,18 +21,19 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_3"
         android:elevation="@dimen/dp_5"
+        bind:cardBackgroundColor="@{viewHolderModel.selected ? @color/colorPrimaryDark : @color/color_white}"
+        bind:cardCornerRadius="@dimen/dp_2"
         car_view:cardElevation="@dimen/dp1"
-        tools:cardBackgroundColor="@{viewHolderModel.selected ? @color/colorPrimaryDark : @color/color_white}"
-        tools:cardCornerRadius="@dimen/dp_2"
         >
 
         <LinearLayout
-            android:background="@drawable/bg_border_green"
+            android:clickable="@{viewHolderModel.timeBooking.status == Constant.AVAILABLE}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="@{() -> viewHolderModel.viewModel.selectedTimePosition(viewHolderModel.position, viewHolderModel.timeBooking)}"
             android:orientation="vertical"
-            android:padding="@dimen/dp_5">
+            android:padding="@dimen/dp_5"
+            bind:resourceId="@{viewHolderModel.timeBooking.resourceId}">
 
             <TextView
                 android:layout_width="wrap_content"
