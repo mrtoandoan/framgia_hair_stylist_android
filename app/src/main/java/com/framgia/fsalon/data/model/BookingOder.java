@@ -40,4 +40,84 @@ public class BookingOder {
     @SerializedName("status")
     @Expose
     private int mStatus;
+
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
+    }
+
+    public int getRenderBookingId() {
+        return mRenderBookingId;
+    }
+
+    public void setRenderBookingId(int renderBookingId) {
+        mRenderBookingId = renderBookingId;
+    }
+
+    public int getUserId() {
+        return mUserId;
+    }
+
+    public void setUserId(int userId) {
+        mUserId = userId;
+    }
+
+    public String getPhone() {
+        return mPhone;
+    }
+
+    public void setPhone(String phone) {
+        mPhone = phone;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public int getStylistId() {
+        return mStylistId;
+    }
+
+    public void setStylistId(int stylistId) {
+        mStylistId = stylistId;
+    }
+
+    public int getGandTotal() {
+        return mGandTotal;
+    }
+
+    public void setGandTotal(int gandTotal) {
+        mGandTotal = gandTotal;
+    }
+
+    public Date getCreatedAt() {
+        return mCreatedAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        mCreatedAt = createdAt;
+    }
+
+    public Date getMpdatedAt() {
+        return mpdatedAt;
+    }
+
+    public void setMpdatedAt(Date mpdatedAt) {
+        this.mpdatedAt = mpdatedAt;
+    }
+
+    public int getStatus() {
+        return mStatus;
+    }
+
+    public void setStatus(int status) {
+        mStatus = status;
+    }
 }

@@ -6,6 +6,8 @@ import framgia.retrofitservicecreator.api.middleware.RxErrorHandlingCallAdapterF
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
@@ -53,6 +55,7 @@ public class ServiceClient {
         BooleanAdapter booleanAdapter = new BooleanAdapter();
         IntegerAdapter integerAdapter = new IntegerAdapter();
         return new GsonBuilder().registerTypeAdapter(Boolean.class, booleanAdapter)
+                .registerTypeAdapter(Date.class, new DateAdapter())
                 .registerTypeAdapter(boolean.class, booleanAdapter)
                 .registerTypeAdapter(Integer.class, integerAdapter)
                 .registerTypeAdapter(int.class, integerAdapter)

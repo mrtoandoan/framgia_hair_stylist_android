@@ -37,6 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_name"
+                    android:text="@={viewModel.name}"
                     android:inputType="textPersonName"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -50,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/title_phone"
-                    android:inputType="textPersonName"/>
+                    android:text="@={viewModel.phone}"
+                    android:inputType="number"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.v7.widget.AppCompatTextView
@@ -135,6 +137,7 @@
                 android:background="@color/colorPrimaryDark"
                 android:padding="@dimen/dp_12"
                 android:text="@string/title_book"
+                android:onClick="@{() -> viewModel.book()}"
                 android:textColor="@android:color/white"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
