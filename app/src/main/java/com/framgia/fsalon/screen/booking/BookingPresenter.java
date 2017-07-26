@@ -25,7 +25,7 @@ import rx.subscriptions.CompositeSubscription;
 import static com.framgia.fsalon.utils.Constant.A_DAY;
 
 /**
- * Listens to user actions from the UI ({@link BookingActivity}), retrieves the data and updates
+ * Listens to user actions from the UI ({@link BookingFragment}), retrieves the data and updates
  * the UI as required.
  */
 public class BookingPresenter implements BookingContract.Presenter {
