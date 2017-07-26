@@ -27,9 +27,9 @@
         >
 
         <LinearLayout
-            android:clickable="@{viewHolderModel.timeBooking.status == Constant.AVAILABLE}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clickable="@{viewHolderModel.timeBooking.status == Constant.AVAILABLE}"
             android:onClick="@{() -> viewHolderModel.viewModel.selectedTimePosition(viewHolderModel.position, viewHolderModel.timeBooking)}"
             android:orientation="vertical"
             android:padding="@dimen/dp_5"
@@ -41,7 +41,9 @@
                 android:layout_gravity="center"
                 android:text="@{viewHolderModel.timeBooking.timeStart}"
                 android:textColor="@{viewHolderModel.selected ? @color/color_white : @color/color_black}"
-                android:textSize="@dimen/sp_12"/>
+                android:textSize="@dimen/sp_15"
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,8 +51,9 @@
                 android:layout_gravity="center"
                 android:text="@{viewHolderModel.timeBooking.statusLabel}"
                 android:textColor="@{viewHolderModel.selected ? @color/color_white : @color/color_black}"
-                android:textSize="@dimen/sp_15"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/sp_12"
+                bind:colorId="@{viewHolderModel.timeBooking.colorId}"
+                />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </layout>

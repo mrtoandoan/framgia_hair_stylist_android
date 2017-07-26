@@ -41,4 +41,6 @@
     <string name="title_report">Report</string>
     <string name="title_profile">Profile</string>
     <string name="msg_book_success">Book Success</string>
+    <string name="msg_pls_select_time">Please Select The Time Below</string>
+    <string name="msg_pls_select_salon">Please Select The Salon Below</string>
 </resources>

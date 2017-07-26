@@ -46,6 +46,14 @@ interface BookingContract {
         void onBookSuccess(BookingOder bookingOder);
 
         void book();
+
+        void onInputPhoneError();
+
+        void onInputNameError();
+
+        void onInputTimeError();
+
+        void onInputSalonError();
     }
 
     /**

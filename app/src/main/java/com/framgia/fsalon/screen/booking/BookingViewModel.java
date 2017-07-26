@@ -24,6 +24,7 @@ import static com.framgia.fsalon.utils.Constant.OUT_OF_INDEX;
  * Exposes the data to be used in the Booking screen.
  */
 public class BookingViewModel extends BaseObservable implements BookingContract.ViewModel {
+    private static final int FIRST_ITEM = 0;
     private BookingContract.Presenter mPresenter;
     private SalonAdapter mSalonAdapter;
     private DateBookingAdapter mDateAdapter;
@@ -37,6 +38,10 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     private String mPhone;
     private String mName;
     private int mRenderBookingId;
+    private String mPhoneError;
+    private String mNameError;
+    private String mTimeError;
+    private String mSalonError;
 
     public BookingViewModel(AppCompatActivity activity) {
         mActivity = activity;
@@ -51,6 +56,7 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     @Override
     public void onGetDateBookingSuccess(List<DateBooking> dateBookings) {
         setDateAdapter(new DateBookingAdapter(mContext, dateBookings, this));
+        mDateAdapter.selectedPosition(FIRST_ITEM);
     }
 
     @Override
@@ -63,6 +69,30 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     @Override
     public void book() {
         mPresenter.book(mPhone, mName, mRenderBookingId, mStylistId);
+    }
+
+    @Override
+    public void onInputPhoneError() {
+        setPhoneError(getStringRes(R.string.msg_error_empty));
+    }
+
+    @Override
+    public void onInputNameError() {
+        setNameError(getStringRes(R.string.msg_error_empty));
+    }
+
+    @Override
+    public void onInputTimeError() {
+        if (mTimeAdapter == null || mTimeAdapter.getItemCount() <= 0) {
+            onInputSalonError();
+            return;
+        }
+        setTimeError(getStringRes(R.string.msg_pls_select_time));
+    }
+
+    @Override
+    public void onInputSalonError() {
+        setSalonError(getStringRes(R.string.msg_pls_select_salon));
     }
 
     @Override
@@ -214,5 +244,45 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     public void setName(String name) {
         mName = name;
         notifyPropertyChanged(BR.name);
+    }
+
+    @Bindable
+    public String getPhoneError() {
+        return mPhoneError;
+    }
+
+    public void setPhoneError(String phoneError) {
+        mPhoneError = phoneError;
+        notifyPropertyChanged(BR.phoneError);
+    }
+
+    @Bindable
+    public String getNameError() {
+        return mNameError;
+    }
+
+    public void setNameError(String nameError) {
+        mNameError = nameError;
+        notifyPropertyChanged(BR.nameError);
+    }
+
+    @Bindable
+    public String getTimeError() {
+        return mTimeError;
+    }
+
+    public void setTimeError(String timeError) {
+        mTimeError = timeError;
+        notifyPropertyChanged(BR.timeError);
+    }
+
+    @Bindable
+    public String getSalonError() {
+        return mSalonError;
+    }
+
+    public void setSalonError(String salonError) {
+        mSalonError = salonError;
+        notifyPropertyChanged(BR.salonError);
     }
 }
