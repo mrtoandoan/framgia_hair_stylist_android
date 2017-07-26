@@ -55,7 +55,8 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/hint_name"
                             android:inputType="textPersonName"
-                            android:text="@={viewModel.name}"/>
+                            android:text="@={viewModel.name}"
+                            android:textSize="@dimen/sp_12"/>
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
@@ -70,7 +71,8 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/title_phone"
                             android:inputType="number"
-                            android:text="@={viewModel.phone}"/>
+                            android:text="@={viewModel.phone}"
+                            android:textSize="@dimen/sp_12"/>
                     </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>

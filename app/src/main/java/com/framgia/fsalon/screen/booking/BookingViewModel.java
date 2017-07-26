@@ -4,6 +4,7 @@ import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 
@@ -30,7 +31,7 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     private DateBookingAdapter mDateAdapter;
     private TimeBookingAdapter mTimeAdapter;
     private ArrayAdapter<Stylist> mStylistAdapter;
-    private AppCompatActivity mActivity;
+    private FragmentActivity mActivity;
     private Context mContext;
     private long mTime = System.currentTimeMillis() / 1000;
     private int mSalonId;
@@ -43,7 +44,7 @@ public class BookingViewModel extends BaseObservable implements BookingContract.
     private String mTimeError;
     private String mSalonError;
 
-    public BookingViewModel(AppCompatActivity activity) {
+    public BookingViewModel(FragmentActivity activity) {
         mActivity = activity;
         mContext = activity.getApplicationContext();
     }

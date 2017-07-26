@@ -24,16 +24,11 @@
             android:theme="@style/AppTheme.Register"/>
         <activity
             android:name=".screen.login.LoginActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".screen.detail.DetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
-        <activity
-            android:name=".screen.booking.BookingActivity"
-            android:screenOrientation="portrait"/>
         <activity
             android:name=".screen.homeadmin.AdminHomeActivity"
             android:screenOrientation="portrait"/>
