@@ -43,4 +43,6 @@
     <string name="msg_book_success">Book Success</string>
     <string name="msg_pls_select_time">Please Select The Time Below</string>
     <string name="msg_pls_select_salon">Please Select The Salon Below</string>
+    <string name="top_sheet_behavior" translatable="false">com.framgia.fsalon.wiget.TopSheetBehavior</string>
+    <string name="action_pick_date">Pick date</string>
 </resources>
