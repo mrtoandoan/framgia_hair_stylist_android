@@ -62,6 +62,20 @@ public class BookingRender extends BaseObservable{
         }
     }
 
+    @Bindable
+    public int getColorId() {
+        switch (mStatus) {
+            case FULL:
+                return R.color.color_red;
+            case AVAILABLE:
+                return R.color.color_green;
+            case OFF_WORK:
+                return R.color.color_red;
+            default:
+                return R.color.color_green;
+        }
+    }
+
     public int getId() {
         return mId;
     }

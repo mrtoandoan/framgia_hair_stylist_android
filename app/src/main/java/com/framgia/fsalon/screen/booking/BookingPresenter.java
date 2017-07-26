@@ -1,5 +1,7 @@
 package com.framgia.fsalon.screen.booking;
 
+import android.text.TextUtils;
+
 import com.framgia.fsalon.R;
 import com.framgia.fsalon.data.model.BookingOder;
 import com.framgia.fsalon.data.model.BookingResponse;
@@ -195,6 +197,9 @@ public class BookingPresenter implements BookingContract.Presenter {
 
     @Override
     public void book(String phone, String name, int renderBookingId, int stylistId) {
+        if (!validateDataInput(phone, name, renderBookingId)) {
+            return;
+        }
         Subscription subscription = mBookingRepository.book(phone, name, renderBookingId, stylistId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -222,5 +227,22 @@ public class BookingPresenter implements BookingContract.Presenter {
                 }
             });
         mCompositeSubscriptions.add(subscription);
+    }
+
+    public boolean validateDataInput(String phone, String name, int renderBookingId) {
+        boolean isValid = true;
+        if (TextUtils.isEmpty(phone)) {
+            isValid = false;
+            mViewModel.onInputPhoneError();
+        }
+        if (TextUtils.isEmpty(name)) {
+            isValid = false;
+            mViewModel.onInputNameError();
+        }
+        if (renderBookingId <= 0) {
+            isValid = false;
+            mViewModel.onInputTimeError();
+        }
+        return isValid;
     }
 }

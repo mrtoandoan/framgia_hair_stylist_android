@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.framgia.fsalon.R;
 import com.framgia.fsalon.data.model.Stylist;
@@ -88,5 +89,10 @@ public class BindingUtils {
     @BindingAdapter("bind:tabSelect")
     public static void setSelectedTab(ViewPager viewPager, int position) {
         viewPager.setCurrentItem(position);
+    }
+
+    @BindingAdapter({"colorId"})
+    public static void setcolorId(TextView view, int colorId) {
+        view.setTextColor(view.getResources().getColor(colorId));
     }
 }
