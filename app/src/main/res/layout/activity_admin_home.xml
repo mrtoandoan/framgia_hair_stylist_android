@@ -2,6 +2,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
     >
 
     <data>
@@ -18,12 +19,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linear_main_contain"
+        <com.framgia.fsalon.wiget.NonSwipeViewPager
+            android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="vertical"/>
+            bind:tabSelect="@{viewModel.tabPosition}"
+            bind:viewPagerAdapter="@{viewModel.adapter}"
+            />
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -32,6 +35,7 @@
             android:background="@color/colorPrimaryDark"
             app:itemTextColor="@color/color_white"
             app:menu="@menu/admin_home_bottom_navigation"
+            bind:listener="@{viewModel.listener}"
             />
     </LinearLayout>
 </layout>

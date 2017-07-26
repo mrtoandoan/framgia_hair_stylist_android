@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         tools:context="com.framgia.fsalon.screen.home.HomeActivity">
 
-        <com.framgia.fsalon.screen.home.NonSwipeViewPager
+        <com.framgia.fsalon.wiget.NonSwipeViewPager
             android:id="@+id/pager_user_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
