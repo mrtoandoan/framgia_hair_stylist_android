@@ -45,4 +45,8 @@
     <string name="msg_pls_select_salon">Please Select The Salon Below</string>
     <string name="top_sheet_behavior" translatable="false">com.framgia.fsalon.wiget.TopSheetBehavior</string>
     <string name="action_pick_date">Pick date</string>
+    <string name="title_success">Booking Success</string>
+    <string name="title_congrat">Congratulations</string>
+    <string name="msg_success_booking">You have successfully booked with these informations</string>
+    <string name="action_ok">OK</string>
 </resources>

@@ -2,13 +2,15 @@ package com.framgia.fsalon.data.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by framgia on 7/21/17.
  */
 
-public class BookingOder {
+public class BookingOder implements Serializable {
 
     @SerializedName("id")
     @Expose
@@ -36,7 +38,7 @@ public class BookingOder {
     private Date mCreatedAt;
     @SerializedName("updated_at")
     @Expose
-    private Date mpdatedAt;
+    private Date mUpdatedAt;
     @SerializedName("status")
     @Expose
     private int mStatus;
@@ -106,11 +108,11 @@ public class BookingOder {
     }
 
     public Date getMpdatedAt() {
-        return mpdatedAt;
+        return mUpdatedAt;
     }
 
     public void setMpdatedAt(Date mpdatedAt) {
-        this.mpdatedAt = mpdatedAt;
+        this.mUpdatedAt = mpdatedAt;
     }
 
     public int getStatus() {
